@@ -1,0 +1,10 @@
+CREDITS
+
+Original Java VideoStore example taken from Martin Fowler's book on
+Refactoring.
+
+C++ version originally coded by Dale Haverstock, with massive changes
+by Michael Collard.
+
+Unit testing code by Michael Collard.
+
