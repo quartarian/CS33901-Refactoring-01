@@ -32,6 +32,7 @@ void Customer::addRental(const Rental& rental) {
   rentals.push_back(rental);
 }
 
+
 // customer rental statement
 std::string Customer::statement() const {
 
@@ -47,12 +48,7 @@ std::string Customer::statement() const {
        it != rentals.end(); ++it) {
 
       // every rental is a rental point
-      ++frequentRenterPoints;
-
-      // new releases rented for more then one day gives a bonus rental point
-      if (it->getMovie().getPriceCode() == Movie::NEW_RELEASE &&
-          it->getDaysRented() > 1 )
-        ++frequentRenterPoints;
+  	frequentRenterPoints = it->getFrequentRenterPoints(frequentRenterPoints, it);
        
       // title of rental
       result += "\t";
@@ -84,4 +80,3 @@ std::string Customer::statement() const {
 
   return result;
 }
-
