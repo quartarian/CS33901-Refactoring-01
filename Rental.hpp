@@ -26,6 +26,9 @@ public:
   const Movie& getMovie() const;
 
   double getCharge() const;
+  
+  int getFrequentRenterPoints(int& frequentRenterPoints, std::vector<Rental>::const_iterator& it) const;
+
 
 private:
 
