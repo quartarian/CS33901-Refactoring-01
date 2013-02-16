@@ -28,8 +28,12 @@ public:
   // add a new rental
   void addRental(const Rental& rental);
 
+  double getTotalCharge(std::vector<Rental>::const_iterator& it) const;
+
   // customer rental statement
   std::string statement() const;
+  void getFrequentRenterPoints(int& frequentRenterPoints,
+			std::vector<Rental>::const_iterator& it) const;
 
 private:
 
