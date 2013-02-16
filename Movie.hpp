@@ -30,6 +30,8 @@ public:
 
   // set movie price code
   void setPriceCode(int new_price_code);
+
+  double getCharge(int daysRented) const;
     
 private:
 
