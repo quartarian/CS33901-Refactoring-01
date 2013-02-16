@@ -1,3 +1,4 @@
+
 /*
   Rental.cpp
 
@@ -51,3 +52,11 @@ double Rental::getCharge() const {
   return thisAmount;
 }
 
+int Rental::getFrequentRenterPoints(int& frequentRenterPoints, std::vector<Rental>::const_iterator& it) const {
+  // every rental is a rental point
+	++frequentRenterPoints;
+	// new releases rented for more then one day gives a bonus rental point
+	if (it->getMovie().getPriceCode() == Movie::NEW_RELEASE && it->getDaysRented() > 1)
+		++frequentRenterPoints;
+	return frequentRenterPoints;
+}
