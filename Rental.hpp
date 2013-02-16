@@ -11,6 +11,7 @@
 #define RENTAL_H
 
 #include "Movie.hpp"
+#include <vector>
 
 class Rental {
 
@@ -26,9 +27,8 @@ public:
   const Movie& getMovie() const;
 
   double getCharge() const;
-  
-  int getFrequentRenterPoints(int& frequentRenterPoints, std::vector<Rental>::const_iterator& it) const;
 
+  int getFrequentRenterPoints(int& frequentRenterPoints, std::vector<Rental>::const_iterator& it) const;
 
 private:
 
