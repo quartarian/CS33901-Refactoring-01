@@ -12,6 +12,24 @@
 
 #include <string>
 
+class Price {
+public:
+	virtual const int getPriceCode() = 0;
+};
+class RegularPrice: public Price {
+public:
+	const int  getPriceCode();
+};
+class ChildrensPrice: public Price {
+public:
+	const int  getPriceCode();
+};
+class NewReleasePrice: public Price {
+public:
+	const int  getPriceCode();
+};
+
+
 class Movie {
 public:
 
@@ -36,7 +54,7 @@ public:
 private:
 
   std::string title;
-  int         price_code;
+  Price*      price_code;
 };
 
 #endif

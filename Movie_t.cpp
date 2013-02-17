@@ -16,7 +16,6 @@ int main() {
   // regular movie
   {
     Movie movie("A", Movie::REGULAR);
-
     assert(movie.getTitle() == "A");
     assert(movie.getPriceCode() == Movie::REGULAR);
   }
@@ -24,7 +23,6 @@ int main() {
   // new release
   {
     Movie movie("A", Movie::NEW_RELEASE);
-
     assert(movie.getTitle() == "A");
     assert(movie.getPriceCode() == Movie::NEW_RELEASE);
   }

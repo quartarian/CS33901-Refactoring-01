@@ -10,9 +10,10 @@
 #include "Movie.hpp"
 
 // constructor
-Movie::Movie(const std::string& title, int price_code)
-      : title(title), price_code(price_code)
-{ }
+Movie::Movie(const std::string& title, int price_code) {
+      this->title = title;
+      this->setPriceCode(price_code);
+}
 
 // movie title
 const std::string& Movie::getTitle() const {
@@ -22,14 +23,26 @@ const std::string& Movie::getTitle() const {
 
 // movie price code
 int Movie::getPriceCode() const {
-
-  return price_code;
+  return price_code->getPriceCode();
 }
 
 // set movie price code
 void Movie::setPriceCode(int new_price_code) {
+	switch (new_price_code) {
+		case Movie::REGULAR:
+			this->price_code = new RegularPrice;
+			break;
 
-  price_code = new_price_code;
+		case Movie::NEW_RELEASE:
+			this->price_code = new NewReleasePrice;
+			break;
+
+		case Movie::CHILDRENS:
+			this->price_code = new ChildrensPrice;
+			break;
+
+	}
+  //price_code = new Price;
 }
 
 double Movie::getCharge(int daysRented) const {
@@ -56,3 +69,16 @@ double Movie::getCharge(int daysRented) const {
 return thisAmount;
 
 }
+
+const int RegularPrice::getPriceCode() {
+	return Movie::REGULAR;
+}
+
+const int ChildrensPrice::getPriceCode() {
+	return Movie::CHILDRENS;
+}
+
+const int NewReleasePrice::getPriceCode() {
+	return Movie::NEW_RELEASE;
+}
+
